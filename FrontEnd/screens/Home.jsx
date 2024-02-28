@@ -1,11 +1,15 @@
 import React from "react";
-import {View, Text} from "react-native";
+import {SafeAreaView, ScrollView} from "react-native";
+import Welcome from "../components/Welcome";
+
 
 const Home = () => {
     return (
-        <View>
-            <Text>Home</Text>
-        </View>
+        <SafeAreaView>
+            <ScrollView>
+                <Welcome/>
+            </ScrollView>
+        </SafeAreaView>
     ) 
 }
 
