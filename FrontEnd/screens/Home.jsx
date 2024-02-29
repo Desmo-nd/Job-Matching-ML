@@ -1,13 +1,20 @@
 import React from "react";
-import {SafeAreaView, ScrollView} from "react-native";
+import {SafeAreaView, ScrollView, View} from "react-native";
 import Welcome from "../components/Welcome";
+import ChooseUs from "../components/ChooseUs";
 
 
 const Home = () => {
     return (
         <SafeAreaView>
             <ScrollView>
-                <Welcome/>
+                <View>
+                    <Welcome/>
+                </View>
+                
+                < View>
+                    <ChooseUs/>
+                </View>
             </ScrollView>
         </SafeAreaView>
     ) 

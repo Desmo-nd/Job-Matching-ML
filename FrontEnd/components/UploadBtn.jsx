@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     iconCont:{
         width:"30%",
         height:"100%",
-        backgroundColor:"#285db8",
+        backgroundColor:COLORS.primary,
         justifyContent: 'center',
         alignItems: 'center',
     }
