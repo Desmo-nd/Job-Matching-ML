@@ -17,14 +17,14 @@ const Welcome = () => {
                     style={styles.container}
                     >    
                     <View style={styles.logobar}>
-                        <Text style={styles.logo}>Job<Text style={{ color: 'rgb(160, 33, 33)' }}>Matching</Text></Text>
-                        {/* <View style={styles.menu}>
+                        <Text style={styles.logo}>Tru<Text style={{ color: 'rgb(160, 33, 33)' }}>Hire</Text></Text>
+                        <View style={styles.menu}>
                             <Text>Home</Text>
                             <Text>About Us</Text>
                             <Text>Services</Text>
                             <Text>Sign In</Text>
                             <Text>Sign Up</Text>
-                        </View> */}
+                        </View>
                     </View>
                     <View style={styles.welcomeCont}>
                         <View style={styles.welcome}>
