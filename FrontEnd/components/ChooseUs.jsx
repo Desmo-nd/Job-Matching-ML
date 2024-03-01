@@ -1,78 +1,88 @@
 import React from "react";
 import {View, StyleSheet, Text} from "react-native";
 import { SIZES, COLORS } from "../constants";
+
 const ChooseUs = () => {
     return (
-        <View>
-            <View style={styles.innnerCont}>
-                <View style={{flexDirection:"row"}}>
+        <View style={styles.container}>
+            <View style={styles.innerCont}>
+                <View style={{ flexDirection: "row" }}>
                     <View style={styles.whyCont}>
                         <View style={styles.textContainer}>
-                            <Text style={styles.text}>WHY</Text>
-                            <Text style={styles.text}>CHOOSE</Text>
-                            <Text style={styles.text}>US ?</Text>
+                            <Text style={styles.title}>WHY</Text>
+                            <Text style={styles.title}>CHOOSE</Text>
+                            <Text style={styles.title}>US?</Text>
+
                         </View>
                     </View>
                     <View style={styles.triangle}></View>
+                    <View style={styles.parallelogram}></View>
                 </View>
-                <View style={styles.ReasonsCont}>
+
+                <View style={styles.reasonsCont}>
                     <Text style={styles.reasonText}>Efficient: Streamline posting and applying.</Text>
                     <Text style={styles.reasonText}>Wide Reach: Access a large pool of applicants.</Text>
                     <Text style={styles.reasonText}>Advanced: Use AI and assessments for better matches.</Text>
                     <Text style={styles.reasonText}>Secure: Ensure data security and confidentiality.</Text>
                 </View>
-
-
             </View>
         </View>
-    )
-}
-export default ChooseUs
+    );
+};
+export default ChooseUs;
 const styles = StyleSheet.create({
-    innnerCont:{
+    container: {
+        padding: 10,
+    },
+    innerCont: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
-    whyCont:{
+    whyCont: {
         backgroundColor: COLORS.primary,
         padding: 10,
         width: SIZES.width * 0.3,
-        height: SIZES.width * 0.40,
+        height: SIZES.width * 0.4,
     },
-    triangle:{
+    triangle: {
         position: 'relative',
         overflow: 'hidden',
-        height: 67,
-        width: SIZES.width * 0.2,
-        borderTopWidth: 70, 
-        borderBottomWidth: 100, 
+        height: 0,
+        width: 0,
+        borderTopWidth: 67,
+        borderBottomWidth: 100,
         borderLeftWidth: 50,
         borderTopColor: 'transparent',
         borderBottomColor: 'transparent',
-        borderLeftColor:  COLORS.primary,
+        borderLeftColor: COLORS.primary,
+    },
+    parallelogram: {
+        width: 30,
+        height: 100,
+        backgroundColor: "#FBA834",
+        transform: [{ skewY: '27deg' }],
+        marginTop: 110,
+        marginLeft: -34,
     },
     textContainer: {
-      
+        padding: 8,   
     },
-    text: {
-        fontSize: 29,
+    title: {
+        fontSize: 24,
         fontFamily: 'bold',
         color: 'white',
         paddingTop: 10,
     },
-    ReasonsCont:{
-        width: SIZES.width * 0.60,
-        height: SIZES.width * 0.40,
-        marginLeft: -30,
-        paddingTop: 3,
+    reasonsCont: {
+        width: SIZES.width * 0.5,
+        paddingVertical: 10,
     },
-    reasonText:{
-        fontSize: 15,
+    reasonText: {
+        fontSize: 16,
         fontFamily: 'regular',
         color: "#000",
-        marginVertical: 2,
-        marginHorizontal: 5,
-    }
-    
-})
+        marginVertical: 5,
+        marginHorizontal: 10,
+    },
+});
