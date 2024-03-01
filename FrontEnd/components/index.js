@@ -6,6 +6,8 @@ import Testimonials from './Testimonials';
 import FAQ from './FAQ';
 import SignUpPrompt from './SignUpPrompt';
 
+
+
 export default {
     Welcome,
     UploadBtn,
@@ -13,5 +15,5 @@ export default {
     Recommeditions,
     Testimonials,
     FAQ,
-    SignUpPrompt
+    SignUpPrompt,
 }

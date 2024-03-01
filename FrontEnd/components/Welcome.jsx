@@ -4,9 +4,15 @@ import { COLORS, SIZES } from "../constants";
 import { LinearGradient } from 'expo-linear-gradient';
 import UploadBtn from "./UploadBtn";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 const Welcome = () => {
     const [showMenu, setShowMenu] = useState(false);
+    const navigation = useNavigation(); // Use useNavigation hook here
+
+    const handleNavigation = (screen) => {
+        navigation.navigate(screen);
+    };
     return (
         <SafeAreaView>
             <ScrollView>
@@ -33,10 +39,10 @@ const Welcome = () => {
                                     <TouchableOpacity onPress={() => handleNavigation("Services")}>
                                     <Text style={styles.text}>Services</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => handleNavigation("Sign In")}>
+                                    <TouchableOpacity onPress={() => handleNavigation('Login')}>
                                     <Text style={styles.text}>Sign In</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => handleNavigation("Sign Up")}>
+                                    <TouchableOpacity onPress={() => handleNavigation('Signup')}>
                                     <Text style={styles.text}>Sign Up</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -51,16 +57,13 @@ const Welcome = () => {
                             style={{width: SIZES.width * 0.9, 
                                     height: SIZES.width * 0.5, 
                                     resizeMode: 'contain',
-                                    // marginRight: 120,
-                                    // marginTop: 120, 
-                                    // padding: 20,
                                     }}/>
                             <Text style={styles.description}>
                                 Find your dream job with ease! Upload your resume, and our advanced algorithms will analyze your skills to provide personalized job recommendations.
                             </Text>
                             <UploadBtn
                                 title="Upload Resume"
-                                // onPress={() => console.log('Upload Resume')}
+                                onPress={() => console.log('Upload Resume')}
                             />
 
                         </View>
@@ -114,7 +117,7 @@ const styles = StyleSheet.create({
         width: 100,
       },
       text: {
-        fontSize: 16,
+        fontSize: 16, 
         fontFamily: "semibold",
         borderColor: "#ccc",
         borderBottomWidth: 1,

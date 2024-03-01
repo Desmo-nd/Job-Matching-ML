@@ -1,34 +1,52 @@
-import { StyleSheet, View, Text, TouchableOpacity, useWindowDimensions } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, TouchableOpacity, useWindowDimensions, Alert } from "react-native";
 import { COLORS, SIZES } from "../constants";
 import { Ionicons } from "@expo/vector-icons";
+import * as DocumentPicker from 'expo-document-picker';
 
+const UploadBtn = ({ title }) => {
+    const { width } = useWindowDimensions();
+    const isSmallScreen = width <= 500;
+    const buttonWidth = isSmallScreen ? '60%' : '40%';
+    const fontSize = isSmallScreen ? 18 : 16;
 
+    const [selectedDocument, setSelectedDocument] = useState(null);
 
-const UploadBtn = ({ title, onPress }) => {
-  const { width } = useWindowDimensions();
-  const isSmallScreen = width <= 500; 
-  const buttonWidth = isSmallScreen ? '60%' : '40%'; 
-  const fontSize = isSmallScreen ? 18 : 16;
-  return (
-    <TouchableOpacity 
-        onPress={onPress} 
-        style={[styles.btnStyle, { width: buttonWidth }]}
-    >
-        <View style={{width:"70%"}}>
-            <Text style={[styles.btnTxt, { fontSize }]}>{title}</Text>
+    const handleUpload = async () => {
+        try {
+            const result = await DocumentPicker.getDocumentAsync({ type: '*/*' });
+            if (result.type === 'success') {
+                setSelectedDocument(result.name);
+                Alert.alert('File Selected', `File name: ${result.name}`);
+                // Handle the uploaded file here, e.g., upload it to a server
+            }
+        } catch (error) {
+            console.log('Document picking error:', error);
+        }
+    };
+
+    return (
+        <View>
+            <TouchableOpacity
+                onPress={handleUpload}
+                style={[styles.btnStyle, { width: buttonWidth }]}
+            >
+                <View style={{ width: "70%" }}>
+                    <Text style={[styles.btnTxt, { fontSize }]}>{title}</Text>
+                </View>
+                <View style={styles.iconCont}>
+                    <Ionicons name="cloud-upload" size={24} color="white" />
+                </View>
+            </TouchableOpacity>
+            {selectedDocument && <Text style={styles.selectedDocument}>gggggg{selectedDocument}</Text>}
         </View>
-        <View style={styles.iconCont}>
-            <Ionicons name="cloud-upload" size={24} color="white" />
-        </View>
-    </TouchableOpacity>
-  )
-}
+    )
+};
 
-export default UploadBtn
+export default UploadBtn;
 
 const styles = StyleSheet.create({
-    btnStyle:{
+    btnStyle: {
         height: 40,
         marginVertical: SIZES.xSmall,
         alignSelf: 'center',
@@ -37,9 +55,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 5,
         flexDirection: 'row',
-        justifyContent: 'space-around',    
+        justifyContent: 'space-around',
     },
-    btnTxt:{
+    btnTxt: {
         fontFamily: 'bold',
         color: "#000",
         fontSize: 18,
@@ -47,11 +65,17 @@ const styles = StyleSheet.create({
         marginHorizontal: "auto",
         paddingLeft: 10,
     },
-    iconCont:{
-        width:"30%",
-        height:"100%",
-        backgroundColor:COLORS.primary,
+    iconCont: {
+        width: "30%",
+        height: "100%",
+        backgroundColor: COLORS.primary,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    selectedDocument: {
+        marginTop: 10,
+        textAlign: 'center',
+        fontFamily: 'regular',
+        fontSize: 40,
     }
 });
