@@ -59,6 +59,9 @@ const FAQs = () => {
 };
 
 const styles = StyleSheet.create({
+    container:{
+        marginTop:20
+    },
    title:{
     fontSize: 24,
     fontFamily: "bold",

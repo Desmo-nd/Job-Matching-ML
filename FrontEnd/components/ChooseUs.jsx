@@ -1,6 +1,8 @@
 import React from "react";
 import {View, StyleSheet, Text} from "react-native";
 import { SIZES, COLORS } from "../constants";
+import { Ionicons } from "@expo/vector-icons";
+
 
 const ChooseUs = () => {
     return (
@@ -20,10 +22,55 @@ const ChooseUs = () => {
                 </View>
 
                 <View style={styles.reasonsCont}>
-                    <Text style={styles.reasonText}>Efficient: Streamline posting and applying.</Text>
-                    <Text style={styles.reasonText}>Wide Reach: Access a large pool of applicants.</Text>
-                    <Text style={styles.reasonText}>Advanced: Use AI and assessments for better matches.</Text>
-                    <Text style={styles.reasonText}>Secure: Ensure data security and confidentiality.</Text>
+                    <View style={{flexDirection:"row"}}>
+                        <Ionicons 
+                            name="checkmark-circle" 
+                            size={25} 
+                            color="purple" 
+                            style={{
+                                marginTop: 10,
+                            }} 
+                        />
+                        <Text style={styles.reasonText}> Efficient: Streamline posting and applying.                    </Text>
+                    </View>
+
+                    <View style={{flexDirection:"row"}}>
+                        <Ionicons 
+                            name="globe" 
+                            size={25} 
+                            color="purple" 
+                            style={{
+                                marginTop: 15,
+                            }} 
+                            /> 
+                        <Text style={styles.reasonText}>Wide Reach: Access a large pool of applicants.</Text>
+                    </View>
+                   
+                    <View style={{flexDirection:"row"}}>
+                        <Ionicons 
+                            name="analytics" 
+                            size={25} 
+                            color="purple"
+                            style={{
+                                marginTop: 25,
+                            }} 
+                        /> 
+                        <Text style={styles.reasonText}>Advanced: Use AI and assessments for better matches.</Text>
+                    </View>  
+                   
+                    <View style={{flexDirection:"row"}}>
+                        <Ionicons 
+                            name="lock-closed" 
+                            size={25} 
+                            color="purple" 
+                            style={{
+                                marginTop: 15,
+                            }} 
+                        /> 
+                        <Text style={styles.reasonText}>Secure: Ensure data security and confidentiality.</Text>
+                    </View>
+
+                    
                 </View>
             </View>
         </View>
@@ -33,6 +80,8 @@ export default ChooseUs;
 const styles = StyleSheet.create({
     container: {
         padding: 10,
+        marginRight: 7,
+        marginTop: 10,
     },
     innerCont: {
         flexDirection: 'row',
@@ -58,7 +107,7 @@ const styles = StyleSheet.create({
         borderLeftColor: COLORS.primary,
     },
     parallelogram: {
-        width: 30,
+        width: 25,
         height: 100,
         backgroundColor: "#FBA834",
         transform: [{ skewY: '27deg' }],

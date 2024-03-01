@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginVertical: 10,
     alignItems: "center",
+    marginTop: 20,
   },
   promptText: {
     fontSize: 19,

@@ -28,7 +28,16 @@ const Testimonials = () => {
 };
 
 const styles = StyleSheet.create({
+    testimonialTittle: {
+        fontSize: 24,
+        fontFamily: "bold",
+        marginTop: 10,
+        textAlign: "center",
+        marginTop: 20,
+
+    },
     testimonialContainer: {
+        marginTop: 10,
         margin: 10,
         width: SIZES.width * 0.9,
         marginHorizontal: SIZES.width * 0.05,
@@ -37,12 +46,6 @@ const styles = StyleSheet.create({
         borderColor: "#ccc",
         borderRadius: 5,
         padding: 10,
-    },
-    testimonialTittle: {
-        fontSize: 24,
-        fontFamily: "bold",
-        marginTop: 10,
-        textAlign: "center",
     },
     testimonialText: {
         fontSize: 14,
