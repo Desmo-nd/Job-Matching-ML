@@ -4,7 +4,7 @@ import Welcome from "../components/Welcome";
 import ChooseUs from "../components/ChooseUs";
 import Recommeditions from "../components/Recommeditions";
 import Testimonials from "../components/Testimonials";
-
+import FAQ from "../components/FAQ";
 
 const Home = () => {
     return (
@@ -22,6 +22,9 @@ const Home = () => {
                 </View>
                 <View>
                     <Testimonials/>
+                </View>
+                <View>
+                    <FAQ/>
                 </View>
             </ScrollView>
         </SafeAreaView>
