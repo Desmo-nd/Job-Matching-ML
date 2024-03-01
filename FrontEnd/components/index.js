@@ -4,6 +4,7 @@ import ChooseUs from './ChooseUs';
 import Recommeditions from './Recommeditions';
 import Testimonials from './Testimonials';
 import FAQ from './FAQ';
+import SignUpPrompt from './SignUpPrompt';
 
 export default {
     Welcome,
@@ -11,5 +12,6 @@ export default {
     ChooseUs,
     Recommeditions,
     Testimonials,
-    FAQ
+    FAQ,
+    SignUpPrompt
 }

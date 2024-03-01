@@ -5,6 +5,8 @@ import ChooseUs from "../components/ChooseUs";
 import Recommeditions from "../components/Recommeditions";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
+import SignUpPrompt from "../components/SignUpPrompt";
+
 
 const Home = () => {
     return (
@@ -25,6 +27,9 @@ const Home = () => {
                 </View>
                 <View>
                     <FAQ/>
+                </View>
+                <View>
+                    <SignUpPrompt/>
                 </View>
             </ScrollView>
         </SafeAreaView>
