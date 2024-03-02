@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, ScrollView, StyleSheet } from 'react-native';
+import {COLORS } from '../constants';
+import MatchBtn from './MatchBtn';
 
 const JobRecommendation = () => {
     const [userSkills, setUserSkills] = useState('');
@@ -26,7 +28,6 @@ const JobRecommendation = () => {
                 'Job Title': cleanText(job['Job Title']),
                 'Company': cleanText(job['Company']),
                 'location': cleanText(job['location']),
-                'Job Posting Date': cleanText(job['Job Posting Date']),
                 'Job Portal': cleanText(job['Job Portal']),
             }));
 
@@ -49,20 +50,24 @@ const JobRecommendation = () => {
                 onChangeText={(text) => setUserSkills(text)}
                 style={styles.input}
             />
-            <Button title="Recommend Jobs" onPress={handleRecommendJobs} />
+            <MatchBtn 
+                title="Recommend Jobs" 
+                onPress={handleRecommendJobs}
+                style={styles.button}
+            />
             {error && <Text>Error: {error}</Text>}
-            <ScrollView>
+            <View style={styles.jobList}>
                 {recommendedJobs.map((job, index) => (
-                    <View key={index}>
-                        <Text>Job Title: {job['Job Title']}</Text>
-                        <Text>Company: {job['Company']}</Text>
-                        <Text>Location: {job['location']}</Text>
-                        <Text>Salary Range: {job['Salary Range']}</Text>
-                        <Text>Job Posting Date: {job['Job Posting Date']}</Text>
-                        <Text>Job Portal: {job['Job Portal']}</Text>
+                    <View key={index} style={styles.jobContainer}>
+                        <Text style={styles.infoText}>Job Title: {job['Job Title']}</Text>
+                        <Text style={styles.infoText}>Company: {job['Company']}</Text>
+                        <Text style={styles.infoText}>Location: {job['location']}</Text>
+                        <Text style={styles.infoText}>Salary Range: {job['Salary Range']}</Text>
+                        <Text style={styles.infoText}>Job Posting Date: {job['Job Posting Date']}</Text>
+                        <Text style={styles.infoText}>Job Portal: {job['Job Portal']}</Text>
                     </View>
                 ))}
-            </ScrollView>
+            </View>
         </View>
     );
 };
@@ -74,7 +79,36 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginBottom: 10,
         paddingHorizontal: 10,
+        fontFamily: 'regular',
     },
+    // jobList: {
+    //     flexDirection: 'row',
+    //     flexWrap: 'wrap',
+    //     justifyContent: 'space-between',
+    //     padding: 10,
+
+    // },
+    jobContainer: {
+        width: '88%', 
+        alignSelf: 'center',
+        borderWidth: 1,
+        borderColor: 'lightgray',
+        padding: 10,
+        marginTop: 10,
+        marginBottom: 10,
+        borderRadius: 5,
+    },
+    infoText: {
+        fontSize: 16,
+        fontFamily: 'regular',
+    },
+    button: {
+        backgroundColor: COLORS.primary,
+        color: COLORS.white,
+        padding: 10,
+        borderRadius: 5,
+        marginTop: 10,
+    }
 });
 
 export default JobRecommendation;
