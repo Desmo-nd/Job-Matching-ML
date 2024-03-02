@@ -5,6 +5,7 @@ import Recommeditions from './Recommeditions';
 import Testimonials from './Testimonials';
 import FAQ from './FAQ';
 import SignUpPrompt from './SignUpPrompt';
+import JobRecommendation from './JobRecommendation';
 
 
 
@@ -16,4 +17,5 @@ export default {
     Testimonials,
     FAQ,
     SignUpPrompt,
+    JobRecommendation
 }

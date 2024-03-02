@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import UploadBtn from "./UploadBtn";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import JobRecommendation from "./JobRecommendation";
 
 const Welcome = () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -70,7 +71,9 @@ const Welcome = () => {
                         <View style={styles.imageCont}>
                        
                         </View>
+                        
                     </View>
+                    <JobRecommendation/>
                 </LinearGradient>
             </ScrollView>
         </SafeAreaView>
