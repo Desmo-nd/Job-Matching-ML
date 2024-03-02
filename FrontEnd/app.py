@@ -41,6 +41,16 @@ def recommend_jobs():
 
     return jsonify(recommended_jobs.to_dict(orient='records'))
 
+
+
+# Route for getting most in-demand jobs
+@app.route('/most-in-demand-jobs', methods=['GET'])
+def most_in_demand_jobs():
+    cluster_counts = data['cluster'].value_counts()
+    most_in_demand_cluster = cluster_counts.idxmax()
+    most_in_demand_jobs = data[data['cluster'] == most_in_demand_cluster][['Job Title', 'Company', 'location', 'Salary Range', 'Job Posting Date', 'Job Portal']]
+    return jsonify(most_in_demand_jobs.to_dict(orient='records'))
+
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
     app.run(host='192.168.0.109', port=5000)

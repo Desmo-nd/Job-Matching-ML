@@ -80,14 +80,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal: 10,
         fontFamily: 'regular',
-    },
-    // jobList: {
-    //     flexDirection: 'row',
-    //     flexWrap: 'wrap',
-    //     justifyContent: 'space-between',
-    //     padding: 10,
-
-    // },
+    },      
     jobContainer: {
         width: '88%', 
         alignSelf: 'center',
@@ -97,6 +90,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         borderRadius: 5,
+        backgroundColor: '#00000019',
+
     },
     infoText: {
         fontSize: 16,
