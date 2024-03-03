@@ -11,7 +11,7 @@ CORS(app)
 
 # Load the job matching model
 model = joblib.load('job_matching_model.joblib')
-
+kmeans = joblib.load('demand_kmeans_model.joblib')
 # Load the tokenized data
 data = pd.read_csv('tokenized.csv')
 
@@ -41,15 +41,34 @@ def recommend_jobs():
 
     return jsonify(recommended_jobs.to_dict(orient='records'))
 
+# Feature extraction using TF-IDF
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(data['Job Title'])
 
-
-# Route for getting most in-demand jobs
 @app.route('/most-in-demand-jobs', methods=['GET'])
 def most_in_demand_jobs():
-    cluster_counts = data['cluster'].value_counts()
-    most_in_demand_cluster = cluster_counts.idxmax()
-    most_in_demand_jobs = data[data['cluster'] == most_in_demand_cluster][['Job Title', 'Company', 'location', 'Salary Range', 'Job Posting Date', 'Job Portal']]
-    return jsonify(most_in_demand_jobs.to_dict(orient='records'))
+    # Group job titles by cluster
+    clusters = {}
+    for cluster_label in range(kmeans.n_clusters):
+        cluster_data = data[data['cluster'] == cluster_label]
+        job_info = []
+        for index, row in cluster_data.iterrows():
+            if len(job_info) >= 5:
+                break
+            job_info.append({
+                'Job Title': row['Job Title'],
+                'Salary Range': row['Salary Range'],  # Assuming you have this column
+                'Job Posting Date': row['Job Posting Date'],      # Assuming you have this column
+                'Salary Range': row['Salary Range'],
+                'Job Description'	:row['Job Description']  # Assuming you have this column
+            })
+        clusters[cluster_label] = job_info
+
+    # Flatten the clusters and get the top 10 unique jobs
+    all_job_info = [job_info for cluster_job_info in clusters.values() for job_info in cluster_job_info]
+    top_jobs = all_job_info[:10]
+
+    return jsonify({'jobs': top_jobs})
 
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
