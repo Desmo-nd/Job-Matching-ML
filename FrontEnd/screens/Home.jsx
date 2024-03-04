@@ -7,35 +7,38 @@ import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import SignUpPrompt from "../components/SignUpPrompt";
 import styles from "./home.styles";
+import { SIZES } from "../constants";
 
 
 const Home = () => {
     return (
         <SafeAreaView>
-            <ScrollView>
-                <View>
-                    <Welcome/>
-                </View>
-                
-                < View>
-                    <ChooseUs/>
-                </View>
-                <View>
-                    <Recommeditions/>
-                </View>
-                <View>
-                    <Testimonials/>
-                </View>
-                <View>
-                    <FAQ/>
-                </View>
-                <View>
-                    <SignUpPrompt/>
-                </View>
-                <View style={styles.footer}>
-                    <Text style={styles.text}>© 2024 JobMatch. All Rights Reserved.</Text>
-                </View>
-            </ScrollView>
+            <View style={{height:SIZES.height*0.98}}>
+                <ScrollView>
+                    <View>
+                        <Welcome/>
+                    </View>
+                    
+                    < View>
+                        <ChooseUs/>
+                    </View>
+                    <View>
+                        <Recommeditions/>
+                    </View>
+                    <View>
+                        <Testimonials/>
+                    </View>
+                    <View>
+                        <FAQ/>
+                    </View>
+                    <View>
+                        <SignUpPrompt/>
+                    </View>
+                    <View style={styles.footer}>
+                        <Text style={styles.text}>© 2024 JobMatch. All Rights Reserved.</Text>
+                    </View>
+                </ScrollView>
+            </View>
         </SafeAreaView>
     ) 
 }

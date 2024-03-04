@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5
+        borderRadius: 5,
+        alignSelf: 'center',
     },
     btnTxt:{
         fontFamily: 'bold',
