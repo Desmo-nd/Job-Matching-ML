@@ -26,7 +26,7 @@ const UploadBtn = ({ title }) => {
     };
 
     return (
-        <View>
+        <View style={{width:SIZES.width}}>
             <TouchableOpacity
                 onPress={handleUpload}
                 style={[styles.btnStyle, { width: buttonWidth }]}
@@ -38,7 +38,7 @@ const UploadBtn = ({ title }) => {
                     <Ionicons name="cloud-upload" size={24} color="white" />
                 </View>
             </TouchableOpacity>
-            {selectedDocument && <Text style={styles.selectedDocument}>gggggg{selectedDocument}</Text>}
+            {selectedDocument && <Text style={styles.selectedDocument}>{selectedDocument}</Text>}
         </View>
     )
 };
@@ -48,11 +48,11 @@ export default UploadBtn;
 const styles = StyleSheet.create({
     btnStyle: {
         height: 40,
+        width: "40%",
         marginVertical: SIZES.xSmall,
         alignSelf: 'center',
         backgroundColor: "#fff",
-        justifyContent: 'center',
-        alignItems: 'center',
+       
         borderRadius: 5,
         flexDirection: 'row',
         justifyContent: 'space-around',

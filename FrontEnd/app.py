@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import logging
+from sklearn.cluster import KMeans
 
 app = Flask(__name__)
 CORS(app)
@@ -41,12 +42,23 @@ def recommend_jobs():
 
     return jsonify(recommended_jobs.to_dict(orient='records'))
 
-# Feature extraction using TF-IDF
-vectorizer = TfidfVectorizer()
-X = vectorizer.fit_transform(data['Job Title'])
 
 @app.route('/most-in-demand-jobs', methods=['GET'])
 def most_in_demand_jobs():
+    # Feature extraction using TF-IDF
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(data['Job Title'])
+
+    n_clusters = 6
+    kmeans = KMeans(n_clusters=n_clusters, random_state=10)
+    kmeans.fit(X)
+
+    joblib.dump(kmeans, 'demand_kmeans_model.joblib')
+
+    data['cluster'] = kmeans.labels_
+
+    # Identify the cluster with the highest count (assuming the index corresponds to the cluster label)
+    high_demand_cluster = data['cluster'].value_counts().idxmax()
     # Group job titles by cluster
     clusters = {}
     for cluster_label in range(kmeans.n_clusters):
@@ -57,19 +69,19 @@ def most_in_demand_jobs():
                 break
             job_info.append({
                 'Job Title': row['Job Title'],
-                'Salary Range': row['Salary Range'],  # Assuming you have this column
-                'Job Posting Date': row['Job Posting Date'],      # Assuming you have this column
+                'Salary Range': row['Salary Range'],  
+                'Job Posting Date': row['Job Posting Date'],      
                 'Salary Range': row['Salary Range'],
-                'Job Description'	:row['Job Description']  # Assuming you have this column
+                'Job Description'	:row['Job Description']  
             })
         clusters[cluster_label] = job_info
 
     # Flatten the clusters and get the top 10 unique jobs
-    all_job_info = [job_info for cluster_job_info in clusters.values() for job_info in cluster_job_info]
-    top_jobs = all_job_info[:10]
+        top_jobs = clusters[high_demand_cluster]
+
 
     return jsonify({'jobs': top_jobs})
 
 if __name__ == '__main__':
     logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
-    app.run(host='192.168.0.109', port=5000)
+    app.run(host='0.0.0.0', port=5000)
