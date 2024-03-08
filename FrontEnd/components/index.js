@@ -7,8 +7,7 @@ import FAQ from './FAQ';
 import SignUpPrompt from './SignUpPrompt';
 import JobRecommendation from './JobRecommendation';
 import MatchBtn from './MatchBtn';
-
-
+import BtnSignup from './BtnSignup';
 export default {
     Welcome,
     UploadBtn,
@@ -18,5 +17,6 @@ export default {
     FAQ,
     SignUpPrompt,
     JobRecommendation,
-    MatchBtn
+    MatchBtn,
+    BtnSignup
 }

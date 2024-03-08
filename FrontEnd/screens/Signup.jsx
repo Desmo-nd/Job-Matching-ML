@@ -9,7 +9,7 @@ import  {MaterialCommunityIcons, Ionicons} from "@expo/vector-icons";
 import * as Yup from "yup";   
 import {Formik} from "formik";  
 import { useState } from "react";
-import ButtonSignup from "../components/ButtonSignup";
+import BtnSignup from "../components/BtnSignup";
 
 
 const validationSchema = Yup.object().shape({
@@ -188,7 +188,7 @@ const Signup = ({navigation}) => {
                 </View>
 
                 <View style={styles.bottom}>
-                  <ButtonSignup 
+                  <BtnSignup 
                       title={"S I G N U P"} 
                       onPress={isValid ?handleSubmit: inValidForm} 
                       loader={loader}

@@ -9,7 +9,7 @@ import {Formik} from "formik";
 import * as Yup from "yup";   
 import  {MaterialCommunityIcons} from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import ButtonSignup from "../components/ButtonSignup";
+import BtnSignup from "../components/BtnSignup";
 
 const validationSchema = Yup.object().shape({
 
@@ -178,7 +178,7 @@ const Login = (props) => {
               )}
             </View>
             {/* <TextInput placeholder="Password" style={styles.input} secureTextEntry /> */}
-            <ButtonSignup
+            <BtnSignup
               loader={loader}
               title={"L O G I N"}
               onPress={isValid ? handleSubmit : inValidForm}
