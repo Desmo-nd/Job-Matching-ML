@@ -31,20 +31,20 @@ const Welcome = () => {
                             </TouchableOpacity>
                             {showMenu && (
                                 <View style={styles.menuItems}>
-                                    <TouchableOpacity onPress={() => handleNavigation("Home")}>
-                                    <Text style={styles.text}>Home</Text>
+                                    <TouchableOpacity style={styles.menuCont} onPress={() => handleNavigation("Home")}>
+                                        <Text style={styles.text}>Home</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => handleNavigation("About Us")}>
-                                    <Text style={styles.text}>About Us</Text>
+                                    <TouchableOpacity style={styles.menuCont} onPress={() => handleNavigation("About Us")}>
+                                        <Text style={styles.text}>About Us</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => handleNavigation("Services")}>
-                                    <Text style={styles.text}>Services</Text>
+                                    <TouchableOpacity style={styles.menuCont} onPress={() => handleNavigation("Services")}>
+                                        <Text style={styles.text}>Services</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => handleNavigation('Login')}>
-                                    <Text style={styles.text}>Sign In</Text>
+                                    <TouchableOpacity style={styles.menuCont} onPress={() => handleNavigation('Login')}>
+                                        <Text style={styles.text}>Sign In</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={() => handleNavigation('Signup')}>
-                                    <Text style={styles.text}>Sign Up</Text>
+                                    <TouchableOpacity style={styles.menuCont} onPress={() => handleNavigation('Signup')}>
+                                        <Text style={styles.text}>Sign Up</Text>
                                     </TouchableOpacity>
                                 </View>
                             )}
@@ -109,15 +109,19 @@ const styles = StyleSheet.create({
       },
       menuItems: {
         position: "absolute",
+        width: 180,
+        height: 230,
         top: 40, 
         right: -18,
-        backgroundColor: "#fff",
+        backgroundColor: "#ADD8E6",
         borderWidth: 1,
         borderColor: "#ccc",
         borderRadius: 5,
         padding: 10,
         zIndex: 1, 
-        width: 100,
+      },
+      menuCont:{
+        padding: 10,
       },
       text: {
         fontSize: 16, 

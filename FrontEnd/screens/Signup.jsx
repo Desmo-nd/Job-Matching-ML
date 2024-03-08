@@ -67,9 +67,9 @@ const Signup = ({navigation}) => {
 
   return (
     <LinearGradient
-      colors={['rgba(255, 254, 230, 0.7)', 'rgba(6, 66, 66, 0.2)']}            
+      colors={['#FFFFFF', '#ADD8E6']}
       start={{ x: 0, y: 0.5 }}
-      end={{ x: 1, y: 0 }}
+      end={{ x: 1, y: 0.5 }}
       style={styles.container}
       >   
         <Formik
@@ -88,9 +88,9 @@ const Signup = ({navigation}) => {
               setFieldTouched 
           }) => (
               <LinearGradient
-                colors={['rgba(255, 254, 230, 0.7)', 'rgba(255, 254, 230, 0.7)']}
+                colors={['#ADD8E6','#FFFFFF']}
                 start={{ x: 0, y: 0.5 }}
-                end={{ x: 1, y: 0 }}
+                end={{ x: 1, y: 0.5 }}
                 style={styles.innerContainer}
                 >   
                 <Text style={styles.title}>Sign Up</Text>
