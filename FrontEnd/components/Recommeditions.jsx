@@ -8,6 +8,7 @@ const removePunctuation = (text) => {
 const capitalizeFirstLetter = (string) => {
     return string.replace(/\b\w/g, (char) => char.toUpperCase());
 };
+
 const Recommendations = () => {
     const [recommendationsData, setRecommendationsData] = useState([]);
 
@@ -21,18 +22,26 @@ const Recommendations = () => {
     return (
         <View>
             <View>
-                <Text style={styles.TopTittle}>Top Recommendations</Text>
+                <Text style={styles.topTitle}>Top Recommendations</Text>
             </View>
             <ScrollView horizontal>
                 {recommendationsData.map(recommendation => (
                     <View key={recommendation.id} style={styles.container}>
                         <Image source={require("../assets/images/job.webp")} style={styles.image} />
-                        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>{capitalizeFirstLetter(removePunctuation(recommendation['Job Title']))}</Text>
-                        <View style={{flexDirection:"row", justifyContent:"space-between", width:"95%"}}>
-                            <Text numberOfLines={1} ellipsizeMode="tail" style={styles.company}>{recommendation['Salary Range']}</Text>
-                            <Text numberOfLines={1} ellipsizeMode="tail" style={styles.company}>{recommendation['Job Posting Date']}</Text>
+                        <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>
+                            {capitalizeFirstLetter(removePunctuation(recommendation['Job Title']))}
+                        </Text>
+                        <View style={styles.row}>
+                            <Text numberOfLines={1} ellipsizeMode="tail" style={styles.company}>
+                                {recommendation['Salary Range']}
+                            </Text>
+                            <Text numberOfLines={1} ellipsizeMode="tail" style={styles.company}>
+                                {recommendation['Job Posting Date']}
+                            </Text>
                         </View>
-                        <Text numberOfLines={3} ellipsizeMode="tail" style={styles.description}>{capitalizeFirstLetter(removePunctuation(recommendation['Job Description']))}</Text>
+                        <Text numberOfLines={3} ellipsizeMode="tail" style={styles.description}>
+                            {capitalizeFirstLetter(removePunctuation(recommendation['Job Description']))}
+                        </Text>
                     </View>
                 ))}
             </ScrollView>
@@ -62,9 +71,9 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 14,
     },
-    TopTittle: {
+    topTitle: {
         fontSize: 24,
-        fontFamily: "bold",
+        fontWeight: "bold",
         marginTop: 10,
         textAlign: "center",
     },
@@ -73,8 +82,10 @@ const styles = StyleSheet.create({
         color: "#666",
         marginBottom: 5,
     },
-    description: {
-        fontSize: 14,
+    row: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        width: "95%",
     },
 });
 
