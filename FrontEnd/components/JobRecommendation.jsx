@@ -10,7 +10,7 @@ const JobRecommendation = () => {
 
     const handleRecommendJobs = async () => {
         try {
-            const response = await fetch('http://192.168.0.109:5000/recommend-jobs', {
+            const response = await fetch('http://192.168.0.112:5000/recommend-jobs', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

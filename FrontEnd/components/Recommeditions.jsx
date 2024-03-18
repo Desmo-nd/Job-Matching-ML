@@ -12,7 +12,7 @@ const Recommendations = () => {
     const [recommendationsData, setRecommendationsData] = useState([]);
 
     useEffect(() => {
-        fetch('http://192.168.0.109:5000/most-in-demand-jobs')
+        fetch('http://192.168.0.112:5000/most-in-demand-jobs')
             .then(response => response.json())
             .then(data => setRecommendationsData(data.jobs))
             .catch(error => console.error('Error fetching data:', error));

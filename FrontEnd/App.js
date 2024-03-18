@@ -42,6 +42,7 @@ export default function App() {
           component={Signup}
           options={{ headerShown: false }}
         />
+         
       </Stack.Navigator>
     </NavigationContainer>
 
