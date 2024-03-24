@@ -19,11 +19,12 @@ const Home = () => {
                         <Welcome/>
                     </View>
                     
-                    < View>
-                        <ChooseUs/>
-                    </View>
+                   
                     <View>
                         <Recommeditions/>
+                    </View>
+                    < View>
+                        <ChooseUs/>
                     </View>
                     <View>
                         <Testimonials/>

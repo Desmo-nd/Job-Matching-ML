@@ -65,7 +65,7 @@ def most_in_demand_jobs():
         cluster_data = data[data['cluster'] == cluster_label]
         job_info = []
         for index, row in cluster_data.iterrows():
-            if len(job_info) >= 5:
+            if len(job_info) >= 10:
                 break
             job_info.append({
                 'Job Title': row['Job Title'],

@@ -23,8 +23,8 @@ const Welcome = () => {
                         }}/>
                     <LinearGradient
                         colors={['rgba(0, 0, 0, 0.9)', 'rgba(0, 0, 0, 0)']} // Adjust colors and opacity as needed
-                        start={{ x: 0, y: 0 }} // Start from left
-                        end={{ x: 1.5, y: 0 }} // End at right
+                        start={{ x: 0, y: 0 }} 
+                        end={{ x: 1.5, y: 0 }}
                         style={styles.overlay}
                     >
                         <View style={styles.logobar}>
