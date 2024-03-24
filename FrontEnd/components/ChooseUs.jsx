@@ -23,7 +23,6 @@ const ChooseUs = () => {
                                 height: "100%", 
                                 marginTop: 10, 
                                 marginLeft: 10,
-                                borderRadius: "50%"
                             }}/>
 
                     </View>

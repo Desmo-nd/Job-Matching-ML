@@ -6,9 +6,9 @@ import * as DocumentPicker from 'expo-document-picker';
 
 const UploadBtn = ({ title }) => {
     const { width } = useWindowDimensions();
-    const isSmallScreen = width <= 500;
-    const buttonWidth = isSmallScreen ? '60%' : '40%';
-    const fontSize = isSmallScreen ? 18 : 16;
+    // const isSmallScreen = width <= 500;
+    // const buttonWidth = isSmallScreen ? '60%' : '40%';
+    // const fontSize = isSmallScreen ? 18 : 16;
 
     const [selectedDocument, setSelectedDocument] = useState(null);
 
@@ -29,10 +29,10 @@ const UploadBtn = ({ title }) => {
         <View style={{width:SIZES.width}}>
             <TouchableOpacity
                 onPress={handleUpload}
-                style={[styles.btnStyle, { width: buttonWidth }]}
+                style={[styles.btnStyle, ]}
             >
-                <View style={{ width: "70%" }}>
-                    <Text style={[styles.btnTxt, { fontSize }]}>{title}</Text>
+                <View style={{ width: "100%" }}>
+                    <Text style={[styles.btnTxt]}>{title}</Text>
                 </View>
                 <View style={styles.iconCont}>
                     <Ionicons name="cloud-upload" size={24} color="white" />
@@ -48,12 +48,12 @@ export default UploadBtn;
 const styles = StyleSheet.create({
     btnStyle: {
         height: 40,
-        width: "40%",
+        width: "35%",
         marginVertical: SIZES.xSmall,
-        alignSelf: 'center',
+       
         backgroundColor: "#fff",
        
-        borderRadius: 5,
+        // borderRadius: 5,
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
