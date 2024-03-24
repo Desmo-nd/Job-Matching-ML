@@ -13,7 +13,7 @@ import { SIZES } from "../constants";
 const Home = () => {
     return (
         <SafeAreaView>
-            <View style={{height:SIZES.height*0.98}}>
+            <View style={{height:SIZES.height}}>
                 <ScrollView>
                     <View>
                         <Welcome/>

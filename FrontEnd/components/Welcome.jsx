@@ -21,7 +21,12 @@ const Welcome = () => {
                                 height: "100%", 
                                 resizeMode: 'cover',
                         }}/>
-                    <View style={styles.overlay}>
+                    <LinearGradient
+                        colors={['rgba(0, 0, 0, 0.9)', 'rgba(0, 0, 0, 0)']} // Adjust colors and opacity as needed
+                        start={{ x: 0, y: 0 }} // Start from left
+                        end={{ x: 1.5, y: 0 }} // End at right
+                        style={styles.overlay}
+                    >
                         <View style={styles.logobar}>
                             <Text style={styles.logo}>Tru<Text style={{ color: 'rgb(160, 33, 33)' }}>Hire</Text></Text>
                             <View style={styles.menucontainer}>
@@ -46,9 +51,7 @@ const Welcome = () => {
                         </View>
                         <View style={styles.welcomeCont}>
                             <View style={styles.welcome}>
-                                <Text style={styles.best}>The best job </Text>
-                                <Text style={styles.match}> Matching Website</Text>
-                                
+                                <Text style={styles.best}>The best job Matching Website</Text>                                
                                 <Text style={styles.description}>
                                     Find your dream job with ease! Upload your resume, and our advanced algorithms will analyze your skills to provide personalized job recommendations.
                                 </Text>
@@ -62,8 +65,9 @@ const Welcome = () => {
                        
                             </View> 
                         </View>
-                    </View>
-                    <JobRecommendation/>
+                        <JobRecommendation/>
+
+                        </LinearGradient>
                 </View>
         </SafeAreaView>
     ) 

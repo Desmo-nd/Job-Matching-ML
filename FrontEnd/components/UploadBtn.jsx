@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: "35%",
         marginVertical: SIZES.xSmall,
-       
+        marginTop: SIZES.large,
         backgroundColor: "#fff",
        
         // borderRadius: 5,

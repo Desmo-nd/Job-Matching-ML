@@ -5,7 +5,7 @@ import { COLORS, SIZES } from "../constants";
 const styles = StyleSheet.create({
 container: {
     width: SIZES.width,
-    height: SIZES.height*0.9,
+    height: SIZES.height*0.5,
 },
 overlay: {
     position: 'absolute',
@@ -13,14 +13,13 @@ overlay: {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the opacity as needed
-    padding: 20,
+    padding: 40,
 },
 logobar: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: -20,
 },
 logo:{
     fontSize: 20,
@@ -46,11 +45,11 @@ menuCont:{
     borderBottomWidth: 1,
 },
 best:{
-    fontSize: 44,
+    fontSize: 32,
     color: '#fff',
     fontFamily: 'semibold',
     marginTop: 20,
-    textAlign   : 'center',
+    // textAlign   : 'center',
 },
 
 match:{
@@ -62,9 +61,8 @@ match:{
 
 },
 description:{
-    // width: SIZES.width * 0.6,
     fontFamily: 'regular',
-    textAlign   : 'center',
+    fontSize: 14,
     color: '#fff',
 },
 
