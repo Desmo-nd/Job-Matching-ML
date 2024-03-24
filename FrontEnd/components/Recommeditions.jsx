@@ -35,9 +35,9 @@ const Recommendations = () => {
     return (
         <ScrollView>
             <View style={styles.container}>
-        <Text style={styles.topTitle}>Top Recommendations</Text>
-        <View style={styles.row}>
-            {recommendationsData.map(recommendation => (
+                <Text style={styles.topTitle}>Top Recommendations</Text>
+                <View style={styles.row}>
+                    {recommendationsData.map(recommendation => (
                 <TouchableOpacity key={recommendation.id} style={styles.itemContainer} onPress={() => handleModalOpen(recommendation)}>
                     <Image source={require("../assets/images/job.webp")} style={styles.image} />
                     <Text numberOfLines={1} ellipsizeMode="tail" style={styles.title}>
@@ -102,9 +102,11 @@ const styles = StyleSheet.create({
     topTitle: {
         fontSize: 28,
         fontWeight: "bold",
-        marginBottom: 10,
+        marginBottom: 20,
         textAlign: "center",
         alignSelf: "center",
+        marginTop: 40,
+
     },
     row: {
         flexDirection: "row",
